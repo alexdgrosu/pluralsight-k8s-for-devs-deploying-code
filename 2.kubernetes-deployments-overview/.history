@@ -1,0 +1,11 @@
+touch nginx.deployment.yml
+kubectl create -f nginx.deployment.yml --save-config
+k get pods
+k get all
+k apply -f nginx.deployment.yml
+k get pods
+k apply -f nginx.deployment.yml
+k get pods
+k get all
+k get deployments.apps
+k delete deployments.apps my-nginx
