@@ -1,0 +1,20 @@
+touch nginx.deployment.yml
+k create -f nginx.deployment.yml --save-config --record
+k get all
+k expose deployment my-nginx --type=NodePort --name=my-nginx
+k get service
+k apply -f nginx.deployment.yml
+k get all
+k rollout status deployment my-nginx
+k rollout status -f nginx.deployment.yml
+k rollout history deployment my-nginx
+k rollout history deployment my-nginx --revision=2
+k rollout history deployment my-nginx --revision=1
+k rollout undo deployment my-nginx
+k rollout history deployment my-nginx
+k describe deployments.apps my-nginx
+k get all
+k describe pod my-nginx-75bbd45cb9-2bmr2
+k get all
+k delete service my-nginx
+k delete deployments.apps my-nginx
