@@ -1,0 +1,19 @@
+k get deployments
+touch blue.deployment.yml green.deployment.yml blue-test.service.yml green-test.service.yml app.service.yml
+k apply -f blue.deployment.yml
+k get pods
+k apply -f app.service.yml
+k get service
+k apply -f blue-test.service.yml
+k get service
+k get pods
+k apply -f green.deployment.yml
+k get deployments.apps
+k apply -f green-test.service.yml
+k get service
+k get pods
+kubectl describe service app-service
+k set selector svc app-service 'role=green'
+kubectl describe service app-service
+k label svc app-service role=green --overwrite
+kubectl describe service app-service
