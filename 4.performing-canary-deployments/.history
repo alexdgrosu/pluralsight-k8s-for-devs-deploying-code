@@ -1,0 +1,10 @@
+touch canary.deployment.yml stable.deployment.yml stable.service.yml
+k apply -f stable.deployment.yml
+k get pods
+k apply -f stable.deployment.yml
+k rollout status -w deployment.v1.apps/stable-deployment
+k get pods
+k apply -f stable.service.yml
+k get pods
+k apply -f canary.deployment.yml
+k get pods
