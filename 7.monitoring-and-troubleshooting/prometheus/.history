@@ -1,0 +1,21 @@
+k create namespace monitoring
+k create -f ./ -R
+k get pods
+k get pods --all-namespaces
+k get all --all-namespaces kubernetes
+k get all --all-namespaces
+k get all --all-namespaces | grep monitoring
+touch nginx.deployment.yml
+k create -f nginx.deployment.yml
+k get pods
+k top nodes
+k top pods
+vless metrics-server/kubernetes/metrics-server-deployment.yaml
+k get deploy
+k get deployments.apps my-nginx -o yaml
+k get deployments.apps my-nginx -o yaml | vless
+k describe deployments.apps my-nginx
+k get pods
+k describe pod my-nginx-6f5645dc6c-7gs8s
+k get pods
+k logs my-nginx-6f5645dc6c-7gs8s
