@@ -1,0 +1,29 @@
+touch pie-counter.job.yml
+k create -f pie-counter.job.yml --save-config
+k get jobs
+k get pods
+k describe jobs.batch
+k get pods
+k logs pie-counter-ch68k
+k delete -f .
+k create -f pie-counter.job.yml --save-config
+k get pods
+k get jobs.batch
+k get pods
+k describe jobs.batch pie-counter
+k logs pie-counter-n665v
+k get jobs.batch pie-counter -o yaml
+touch pie-counter.cronjob.yml
+k delete jobs.batch pie-counter
+k get pods
+k create -f pie-counter.cronjob.yml --save-config
+k get pods
+k get jobs
+k get cj
+k get pods --watch
+k get pods
+k get cj
+k get cj -o yaml
+k get pods
+k logs pie-counter-1594374420-v5jbn
+k delete cj pie-counter
